@@ -3,7 +3,8 @@
 # сохранить на своём месте. Для заполнения списка элементов нужно использовать функцию
 # input().
 
-user_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+user_str = input('Введите список через пробел: ')
+user_list = user_str.split(' ')
 
 for i in range(1, len(user_list) if len(user_list) % 2 == 0 else len(user_list) - 1, 2):
     tmp = user_list[i - 1]
