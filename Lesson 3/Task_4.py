@@ -17,10 +17,7 @@ def power_v2(x, y):
     result = x
     for i in range(1, abs(y)):
         result *= x
-    if y < 0:
-        return 1 / result
-    else:
-        return result
+    return 1/result if y < 0 else result
 
 a,b = input('Введите два числа через пробел: ').split(' ')
 a = int(a)
