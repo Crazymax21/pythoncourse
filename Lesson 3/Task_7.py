@@ -3,6 +3,7 @@
 исходной строки, но каждое слово должно начинаться с заглавной буквы. Используйте
 написанную ранее функцию int_func()."""
 
+
 def int_func(word=''):
     return word.capitalize()
 
@@ -11,7 +12,7 @@ text = input('Введите слова через пробел: ')
 print(f'Исходная строка: {text}')
 
 text = text.split(' ')
-for i in range(0,len(text)):
+for i in range(0, len(text)):
     text[i] = int_func(text[i])
 
 text = ' '.join(text)
