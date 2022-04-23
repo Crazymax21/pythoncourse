@@ -2,5 +2,11 @@
 возвращающую их же, но с прописной первой буквой. Например, print(int_func(‘text’)) -> Text.
 """
 
-print((lambda word: word.capitalize()) (input('Введите слово: ')))
 
+def int_func(word=''):
+    return word.capitalize()
+
+
+text = input('Введите слово: ')
+
+print(int_func(text))
