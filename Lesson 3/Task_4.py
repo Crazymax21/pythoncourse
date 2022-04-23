@@ -22,6 +22,9 @@ def power_v2(x, y):
     else:
         return result
 
-print(power_v1(2,-10))
+a,b = input('Введите два числа через пробел: ').split(' ')
+a = int(a)
+b = int(b)
+print(f'{a} в степени {b} = {power_v1(a,b)}')
 
-print(power_v2(2,-10))
+print(f'{a} в степени {b} = {power_v2(a,b)}')
