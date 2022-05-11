@@ -7,9 +7,14 @@
 
 from math import factorial
 
+
 def fact(n):
-    for el in range(1, n+1):
+    for el in range(1, n + 1):
         yield factorial(el)
 
-for el in fact(5):
-    print(el)
+
+number = int(input('Введите число: '))
+i = 1
+for el in fact(number):
+    print(f'{i}! ={" * ".join([str(el) for el in range(1, i + 1)])} = {el}')
+    i += 1
