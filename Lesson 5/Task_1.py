@@ -5,9 +5,9 @@
 
 from itertools import count
 
-with open('lesson1.txt', 'w') as lesson1_file:
+with open('task_1.txt', 'w') as task1_file:
     for i in count(0):
         user_string = input(f'Введите строку №{i + 1}: ')
         if str == '':
             break
-        print(user_string, file=lesson1_file)
+        print(user_string, file=task1_file)
