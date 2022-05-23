@@ -26,7 +26,7 @@
 
 class Cell:
 
-    def __init__(self, cells):
+    def __init__(self, cells=0):
         self.cells_count = cells
         self._cells_row = 7
         self._cell_struct = []
