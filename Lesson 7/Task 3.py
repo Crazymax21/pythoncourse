@@ -33,23 +33,19 @@ class Cell:
         self._construct_cell()
 
     def __add__(self, other):
-        self._cells_count += other._cells_count
-        self._construct_cell()
+        return Cell(self._cells_count + other._cells_count)
 
     def __sub__(self, other):
         if self._cells_count - other._cells_count <= 0:
-            print('Операция не возможна')
+            return 'Операция не возможна'
         else:
-            self._cells_count -= other._cells_count
-            self._construct_cell()
+            return Cell(self._cells_count - other._cells_count)
 
     def __mul__(self, other):
-        self._cells_count *= other._cells_count
-        self._construct_cell()
+        return Cell(self._cells_count * other._cells_count)
 
     def __truediv__(self, other):
-        self._cells_count = self._cells_count // other._cells_count
-        self._construct_cell()
+        return Cell(self._cells_count // other._cells_count)
 
     def make_order(self, cell_row):
         self._cells_row = cell_row
@@ -65,31 +61,18 @@ class Cell:
             self._cell_struct.append(mesh * '*')
 
     def __str__(self):
-        print('\n'.join(self._cell_struct))
+        return '\n'.join(self._cell_struct)
 
 
-my_cell1 = Cell(16)
+my_cell1 = Cell(7)
 
-my_cell2 = Cell(18)
+my_cell2 = Cell(5)
 
 print('Клетка 1')
-my_cell1.__str__()
+print(my_cell1)
 print('Клетка 2')
-my_cell2.__str__()
+print(my_cell2)
 
-# my_cell1.make_order(3)
-#
-# print('Клетка 1')
-# my_cell1.__str__()
-# print('Клетка 2')
-# my_cell2.__str__()
-
-# my_cell1.__add__(my_cell2)
-# my_cell2.__add__(my_cell1)
-my_cell1.__sub__(my_cell2)
-#my_cell1.__truediv__(my_cell2)
-# my_cell1.__mul__(my_cell2)
-print('Клетка 1')
-my_cell1.__str__()
-print('Клетка 2')
-my_cell2.__str__()
+my_cell3 = my_cell1 / my_cell2
+print('Клетка 3')
+print(my_cell3)
