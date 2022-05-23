@@ -27,28 +27,28 @@
 class Cell:
 
     def __init__(self, cells=0):
-        self.cells_count = cells
+        self._cells_count = cells
         self._cells_row = 7
         self._cell_struct = []
         self._construct_cell()
 
     def __add__(self, other):
-        self.cells_count += other.cells_count
+        self._cells_count += other._cells_count
         self._construct_cell()
 
     def __sub__(self, other):
-        if self.cells_count - other.cells_count <= 0:
+        if self._cells_count - other._cells_count <= 0:
             print('Операция не возможна')
         else:
-            self.cells_count -= other.cells_count
+            self._cells_count -= other._cells_count
             self._construct_cell()
 
     def __mul__(self, other):
-        self.cells_count *= other.cells_count
+        self._cells_count *= other._cells_count
         self._construct_cell()
 
     def __truediv__(self, other):
-        self.cells_count = self.cells_count // other.cells_count
+        self._cells_count = self._cells_count // other._cells_count
         self._construct_cell()
 
     def make_order(self, cell_row):
@@ -57,11 +57,11 @@ class Cell:
 
     def _construct_cell(self):
         self._cell_struct.clear()
-        cell_parts = self.cells_count / self._cells_row if self.cells_count % self._cells_row == 0 else (
-                                                                                                                self.cells_count // self._cells_row) + 1
+        cell_parts = self._cells_count / self._cells_row if self._cells_count % self._cells_row == 0 else (
+                                                                                                                self._cells_count // self._cells_row) + 1
         for i in range(int(cell_parts)):
-            mesh = self._cells_row if self.cells_count - self._cells_row * (
-                i) > self._cells_row else self.cells_count - self._cells_row * (i)
+            mesh = self._cells_row if self._cells_count - self._cells_row * (
+                i) > self._cells_row else self._cells_count - self._cells_row * (i)
             self._cell_struct.append(mesh * '*')
 
     def __str__(self):
