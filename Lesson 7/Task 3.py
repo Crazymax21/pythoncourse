@@ -37,7 +37,7 @@ class Cell:
 
     def __sub__(self, other):
         if self._cells_count - other._cells_count <= 0:
-            return 'Операция не возможна'
+            raise TypeError('Операция не возможна')
         else:
             return Cell(self._cells_count - other._cells_count)
 
@@ -45,7 +45,10 @@ class Cell:
         return Cell(self._cells_count * other._cells_count)
 
     def __truediv__(self, other):
-        return Cell(self._cells_count // other._cells_count)
+        if other._cells_count == 0:
+            raise ZeroDivisionError('Операция не возможна')
+        else:
+            return Cell(self._cells_count // other._cells_count)
 
     def make_order(self, cell_row):
         self._cells_row = cell_row
@@ -66,7 +69,7 @@ class Cell:
 
 my_cell1 = Cell(7)
 
-my_cell2 = Cell(5)
+my_cell2 = Cell(0)
 
 print('Клетка 1')
 print(my_cell1)
@@ -74,5 +77,6 @@ print('Клетка 2')
 print(my_cell2)
 
 my_cell3 = my_cell1 / my_cell2
+my_cell3.make_order(4)
 print('Клетка 3')
 print(my_cell3)
