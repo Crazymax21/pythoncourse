@@ -13,5 +13,11 @@ class MyError(Exception):
 input_data = input("Введите выражение: ")
 
 input_data = list(map(float, input_data.split('/')))
-result = input_data[0]/input_data[1] if input_data[1] != 0 else MyError('На 0 делить нельзя')
-print(result)
+try:
+    if input_data[1] == 0:
+        raise MyError('На 0 делить нельзя')
+    result = input_data[0] / input_data[1]
+    print(result)
+except MyError as err:
+    print(err)
+
