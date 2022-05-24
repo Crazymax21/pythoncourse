@@ -6,26 +6,25 @@
 
 class Complex:
 
-    def __init__(self, digit=''):
-        self.a = int(digit.split('+')[0])
-        self.b = int(digit.split('+')[1].replace('i',''))
+    def __init__(self, a, b):
+        self.a = int(a)
+        self.b = int(b)
 
     def __str__(self):
-        return f'{self.a}+{self.b}i'
-
+        return f'{self.a}+{self.b}i' if self.b >= 0 else f'{self.a}{self.b}i'
     def __add__(self, other):
         a = self.a + other.a
         b = self.b + other.b
-        return Complex(f'{a}+{b}i')
+        return Complex(a, b)
 
     def __mul__(self, other):
         a = self.a * other.a - self.b * other.b
         b = self.b * other.a + self.a * other.b
-        return Complex(f'{a}+{b}i')
+        return Complex(a, b)
 
 
-my_first_digit = Complex('30+6i')
-my_second_digit = Complex('3+10i')
+my_first_digit = Complex(30, -2)
+my_second_digit = Complex(6, 10)
 
 print(my_first_digit)
 print(my_second_digit)
