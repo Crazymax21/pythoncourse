@@ -12,6 +12,7 @@ class Complex:
 
     def __str__(self):
         return f'{self.a}+{self.b}i' if self.b >= 0 else f'{self.a}{self.b}i'
+
     def __add__(self, other):
         a = self.a + other.a
         b = self.b + other.b
